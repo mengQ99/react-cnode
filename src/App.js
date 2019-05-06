@@ -1,9 +1,15 @@
 import React from 'react';
+import RouterIndex from './router/index';
+import MainHeader from './view/common/main-header';
+import MainFooter from './view/common/main-footer';
+import './view/index.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>APP</h1>
+    <div className="page-wrap">
+      <MainHeader/>
+      {/* <RouterIndex /> */}
+      <MainFooter/>
     </div>
   );
 }
