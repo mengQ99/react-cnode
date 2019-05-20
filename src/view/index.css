@@ -5,3 +5,16 @@
   color: #fff;
   text-align: center;
 }
+.header-nav {
+  display: inline-block;
+  line-height: 62px;
+  background: none;
+  border: none;
+  margin-left: 30px;
+}
+.header-nav .ant-menu-item a {
+  color: #fff;
+}
+.header-nav .ant-menu-item-selected a {
+  color: #1890ff;
+}
