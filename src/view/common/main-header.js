@@ -18,7 +18,7 @@ class MainHeader extends Component {
               trigger={['click']}
               placement="bottomLeft"
             >
-              <Button type="link">nn
+              <Button type="link">
                 <Icon type="menu" style={{fontSize: 18, color: '#FFF'}}/>
               </Button>
             </Dropdown>
