@@ -9,6 +9,7 @@ function App() {
     <div className="page-wrap">
       <MainHeader/>
       {/* <RouterIndex /> */}
+        <main className="main"></main>
       <MainFooter/>
     </div>
   );
