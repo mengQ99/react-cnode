@@ -3,6 +3,11 @@
   flex-direction: column;
   min-height: 100vh;
 }
+.wrap {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+}
 #logo {
   color: #fff;
   text-align: center;
@@ -25,4 +30,5 @@
 }
 .main {
   flex: 1;
+  padding: 0 50px;
 }

@@ -6,7 +6,7 @@ class MainHeader extends Component {
   render() {
     return (
       <Layout.Header>
-        <Row>
+        <Row className="wrap">
           <Col md={6} xs={24}><h1 id="logo">cnode</h1></Col>
           <Col md={18} xs={0}>
             <Divider type="vertical"></Divider>

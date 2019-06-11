@@ -8,8 +8,9 @@ function App() {
   return (
     <div className="page-wrap">
       <MainHeader/>
-      {/* <RouterIndex /> */}
-        <main className="main"></main>
+        <main className="main">
+          <RouterIndex />
+        </main>
       <MainFooter/>
     </div>
   );
