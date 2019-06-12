@@ -6,8 +6,8 @@ class Index extends Component {
   render() {
     return (
       <Row className="wrap">
-        <Col md={6} xs={0}>
-          <Menu>
+        <Col md={6}>
+          <Menu id="indexMenu">
             <Menu.Item>
               <Link to="/index/ask">全部</Link>
             </Menu.Item>
