@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Row, Col } from 'antd';
+import IndexList from './list';
 
 class Index extends Component {
   render() {
+    console.log(this.props)
     return (
       <Row className="wrap">
         <Col md={6}>
           <Menu id="indexMenu">
             <Menu.Item>
-              <Link to="/index/ask">全部</Link>
+              <Link to="/index/all">全部</Link>
             </Menu.Item>
             <Menu.Item>
               <Link to="/index/good">精华</Link>
@@ -28,7 +30,9 @@ class Index extends Component {
             </Menu.Item>
           </Menu>         
         </Col>
-        <Col md={18}></Col>
+        <Col md={18}>
+          <IndexList/>
+        </Col>
       </Row>
 
     )
