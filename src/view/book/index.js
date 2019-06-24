@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import CardPage from '../common/card-page';
+import data from "./data"
 
-class Book extends Component {
+export default class Book extends Component {
   render() {
-    return 'book'
+    return <CardPage data={data}/>
   }
 }
-
-export default Book

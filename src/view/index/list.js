@@ -12,7 +12,7 @@ export default class IndexList extends Component {
       loading={false}
       dataSource={data.data}
       renderItem={item => (
-        <List.Item actions={["回复：" + item.reply_count, "访问：" + item.visit_count]}>
+        <List.Item actions={["回复：" + item.reply_count, "访问：" + item.visit_count]} key={item.id}>
           <List.Item.Meta
             avatar={<Avatar src={item.author.avatar_url} />}
             title={
