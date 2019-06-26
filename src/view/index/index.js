@@ -7,7 +7,7 @@ class Index extends Component {
   render() {
     console.log(this.props)
     return (
-      <Row className="wrap">
+      <Row className="wrap" style={{display: 'flex'}}>
         <Col md={6}>
           <Menu id="indexMenu">
             <Menu.Item>
