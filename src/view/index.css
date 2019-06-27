@@ -34,16 +34,23 @@
 .ant-divider, .ant-divider-vertical {
   margin: 0;
 }
+.ant-layout-header {
+  padding: 0;
+}
 .main {
   flex: 1;
 }
 
 #indexMenu {
   text-align: center;
-  height: 100%;
   box-shadow: none;
+  border-right: none;
+}
+.listTitle {
+  margin-bottom: 0;
 }
 @media all and (max-width: 767px) {
+  /* 首页左侧menu */
   #indexMenu {
     display: flex;
     border-bottom: 1px solid #ccc;
@@ -56,5 +63,10 @@
   #indexMenu li:hover,
   #indexMenu .ant-menu-item-selected {
     border-bottom-color: #1890ff;
+  }
+  /* 用户详情页 */
+  .listTitle {
+    display: block;
+    width: 100%;
   }
 }

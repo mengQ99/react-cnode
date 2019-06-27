@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Menu, Row, Col } from 'antd';
 import IndexList from './list';
 
-class Index extends Component {
+export default class Index extends Component {
   render() {
     console.log(this.props)
     return (
-      <Row className="wrap" style={{display: 'flex'}}>
+      <Row className="wrap">
         <Col md={6}>
           <Menu id="indexMenu">
             <Menu.Item>
@@ -38,5 +38,3 @@ class Index extends Component {
     )
   }
 }
-
-export default Index
