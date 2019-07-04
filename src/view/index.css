@@ -50,7 +50,7 @@
   margin-bottom: 0;
 }
 @media all and (max-width: 767px) {
-  /* 首页左侧menu */
+  /* 首页小屏模式下menu */
   #indexMenu {
     display: flex;
     border-bottom: 1px solid #ccc;
@@ -59,6 +59,9 @@
     flex: 1;
     margin: 0;
     border-bottom: 3px solid rgba(0,0,0,0)
+  }
+  #indexMenu .ant-menu-item::after {
+    border-right: none;
   }
   #indexMenu li:hover,
   #indexMenu .ant-menu-item-selected {
