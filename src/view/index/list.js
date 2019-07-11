@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { List, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
-import data from './data';
 import TxtTag from '../common/txt-tag'
 import axios from 'axios';
-
 
 
 class IndexList extends Component {
@@ -14,8 +12,8 @@ class IndexList extends Component {
     this.state = {
       page: 1,
     }
-    this.getData(this.props.tab)
   }
+
   //父组件render，子组件就会触发componentWillReceiveProps方法
   componentWillReceiveProps(nextProps) {
     if (this.props.tab != nextProps.tab) {
@@ -23,7 +21,12 @@ class IndexList extends Component {
     }
   }
 
+  componentWillMount(){
+    this.getData(this.props.tab)
+  }
+
   getData(tab) {
+    console.log('getdata')
     this.props.dispatch((dispatch) => {
       dispatch({ type: 'LIST_UPDATE' })
       axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`)
@@ -38,13 +41,12 @@ class IndexList extends Component {
             type: 'LIST_UPDATE_ERROR',
             data: err
           })
-          console.log(err)
         })
     })
   }
 
   render() {
-    console.log(this.props)
+    console.log('render')
     let { loading, data } = this.props
     return <List
       loading={loading}
