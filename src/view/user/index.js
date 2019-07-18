@@ -1,11 +1,49 @@
 import React, { Component } from 'react';
 import { Avatar, Row, Col } from 'antd';
-import data from './data';
+import { connect } from 'react-redux';
 import RecentList from './recent-list'
+import axios from 'axios';
 
 class User extends Component {
+  constructor(props){
+    super(props)
+    console.log(this.props)
+  }
+
+  componentWillMount(){
+    this.getData(this.props.match.params.id)
+  }
+
+  shouldComponentUpdate(nextProps){
+    if(this.props.match.params.id != nextProps.match.params.id){
+      this.getData(nextProps.match.params.id)
+      return false
+    }
+    return true
+  }
+
+  getData(id){
+    this.props.dispatch((dispatch) => {
+      dispatch({
+        type: 'USER_UPDATE'
+      })
+      axios.get(`https://cnodejs.org/api/v1/user/${id}`)
+        .then(res => {
+          dispatch({
+            type: 'USER_UPDATE_SUCCESS',
+            data: res.data
+          })
+        }).catch(err => {
+          dispatch({
+            type: 'USER_UPDATE_ERROR'
+          })
+        })
+    })
+  }
+
   render() {
-    let { avatar_url, loginname, create_at, score } = data.data
+    let { avatar_url, loginname, create_at, score, recent_topics, recent_replies } = this.props.data
+    let { loading } = this.props
     return (
       <div className="wrap">
         <Avatar src={avatar_url} style={{ width: 100, height: 100, borderRadius: '50%', margin: '10px auto', display: 'block' }} />
@@ -14,11 +52,11 @@ class User extends Component {
           <Col md={8}>积分：<a>{score}</a></Col>
           <Col md={8}>注册时间：<a>{create_at.split('T')[0]}</a></Col>
         </Row>
-        <RecentList loading={false} data={data.data.recent_topics} title="最近创建的话题"/>
-        <RecentList loading={false} data={data.data.recent_replies} title="最近回复的话题"/>
+        <RecentList loading={loading} data={recent_topics} title="最近创建的话题"/>
+        <RecentList loading={loading} data={recent_replies} title="最近回复的话题"/>
       </div>
     )
   }
 }
 
-export default User
+export default connect(state => state.user)(User)
