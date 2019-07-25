@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { Card, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
-import data from './data';
 import TxtTag from '../common/txt-tag';
 import Replies from './replies';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-const res = data.data
 
 class Details extends Component {
 
-  constructor(props){
-    super(props)
-    let id = this.props.match.params.id
-    this.getData(id)
+  componentWillMount(){
+    this.getData(this.props.match.params.id)
   }
 
   getData(id) {
@@ -44,7 +40,7 @@ class Details extends Component {
           loading={loading}
           title={(
             <div>
-              <h1>{res.title}</h1>
+              <h1>{data.title}</h1>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <TxtTag data={data} />
                 <Avatar src={data.author.avatar_url} />&nbsp;&nbsp;

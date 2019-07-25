@@ -14,7 +14,6 @@ class NavMenu extends Component {
   }
 
   shouldComponentUpdate(nextProps){
-    debugger
     let cur = this.getCur(nextProps.location) 
     if(cur !== this.state.cur) {
       this.setState({cur})

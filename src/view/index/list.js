@@ -16,7 +16,7 @@ class IndexList extends Component {
 
   //父组件render，子组件就会触发componentWillReceiveProps方法
   componentWillReceiveProps(nextProps) {
-    if (this.props.tab != nextProps.tab) {
+    if (this.props.tab !== nextProps.tab) {
       this.getData(nextProps.tab)
     }
   }
@@ -46,7 +46,6 @@ class IndexList extends Component {
   }
 
   render() {
-    console.log('render')
     let { loading, data } = this.props
     return <List
       loading={loading}
