@@ -13,7 +13,7 @@ const user = (state={
     case 'USER_UPDATE':
       return {
         data: state.data,
-        loading: false
+        loading: true
       }
     case 'USER_UPDATE_SUCCESS':
       return {

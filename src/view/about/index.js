@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import CardPage from '../common/card-page';
+import data from './data';
 
 class About extends Component {
   render() {
-    return 'About'
+    return <CardPage data={data}/>
   }
 }
 
