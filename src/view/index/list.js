@@ -26,7 +26,6 @@ class IndexList extends Component {
   }
 
   getData(tab) {
-    console.log('getdata')
     this.props.dispatch((dispatch) => {
       dispatch({ type: 'LIST_UPDATE' })
       axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`)

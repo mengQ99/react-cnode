@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Menu, Row, Col } from 'antd';
 import IndexList from './list';
 
-export default class Index extends Component {
+class Index extends Component {
   render() {
     let tab = this.props.match.params.id
     let menu = [
@@ -17,7 +17,7 @@ export default class Index extends Component {
     return (
       <Row className="wrap">
         <Col md={6}>
-          <Menu id="indexMenu" defaultSelectedKeys={['all']} mode="inline">
+          <Menu id="indexMenu" defaultSelectedKeys={[this.props.location.pathname.split('/')[2]]} mode="inline">
             {
               menu.map(e => (
                 <Menu.Item key={e.key}>
@@ -35,3 +35,5 @@ export default class Index extends Component {
     )
   }
 }
+
+export default Index
