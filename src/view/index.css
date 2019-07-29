@@ -49,6 +49,12 @@
 .listTitle {
   margin-bottom: 0;
 }
+.ant-card-head-title {
+  white-space: normal;
+}
+.ant-list-pagination {
+  margin-bottom: 24px;
+}
 @media all and (max-width: 767px) {
   /* 首页小屏模式下menu */
   #indexMenu {

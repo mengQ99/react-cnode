@@ -17,18 +17,27 @@ class IndexList extends Component {
   //父组件render，子组件就会触发componentWillReceiveProps方法
   componentWillReceiveProps(nextProps) {
     if (this.props.tab !== nextProps.tab) {
-      this.getData(nextProps.tab)
+      this.setState({page: 1})
+      this.getData(nextProps.tab, 1)
     }
   }
 
-  componentWillMount(){
-    this.getData(this.props.tab)
+  shouldComponentUpdate(nextProps, nextState){
+    if(this.state.page !== nextState.page){
+      this.getData(nextProps.tab, nextState.page)
+      return false
+    }
+    return true
   }
 
-  getData(tab) {
+  componentWillMount(){
+    this.getData(this.props.tab, this.state.page)
+  }
+
+  getData(tab, page) {
     this.props.dispatch((dispatch) => {
       dispatch({ type: 'LIST_UPDATE' })
-      axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`)
+      axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=10`)
         .then(res => {
           dispatch({
             type: 'LIST_UPDATE_SUCCESS',
@@ -46,9 +55,18 @@ class IndexList extends Component {
 
   render() {
     let { loading, data } = this.props
+    let pagination = {
+      current: this.state.page,
+      pageSize: 10,
+      total: 999,
+      onChange: cur => {
+        this.setState({ page: cur })
+      }
+    }
     return <List
       loading={loading}
       dataSource={data}
+      pagination={loading? false: pagination}
       renderItem={item => (
         <List.Item
           actions={["回复：" + item.reply_count, "访问：" + item.visit_count]}
