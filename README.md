@@ -26,11 +26,11 @@ react-redux 将 react 和 redux 结合在一起，它给我们提供了`connect(
 
 - Provider组件：它将整个应用包装起来，将store传入
 
-  ```html
-  <Provider store={store}>
-  	<App />    
-  </Provider>
-  ```
+    ```html
+    <Provider store={store}>
+        <App />    
+    </Provider>
+    ```
 
   
 
@@ -46,17 +46,17 @@ react-redux 将 react 和 redux 结合在一起，它给我们提供了`connect(
 
 3. reducer对state进行处理并返回一个新的state放入store
 
-   ```javascript
-   const list = (state = { data: [] }, action) => {
-       //action => { type: 'LIST_UPDATE', data: [1,2,3] }
-   	switch (action.type) {
-       	case 'LIST_UPDATE': 
-         	return {
-   			data: action.data //返回新的state
-         	}
-       	default: return state
-   	}
-   }
-   ```
+    ```javascript
+    const list = (state = { data: [] }, action) => {
+        //action => { type: 'LIST_UPDATE', data: [1,2,3] }
+        switch (action.type) {
+        case 'LIST_UPDATE': 
+            return {
+                data: action.data //返回新的state
+            }
+            default: return state
+        }
+    }
+    ```
 
 4. connect监听到store发生变化，调用setState更新组件
