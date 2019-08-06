@@ -1,5 +1,4 @@
 const list = (state = { data: [], loading: true }, action) => {
-  // debugger
   switch (action.type) {
     case 'LIST_UPDATE': 
       return {
